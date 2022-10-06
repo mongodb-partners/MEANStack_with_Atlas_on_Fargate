@@ -47,7 +47,7 @@ Configure the database for [network security](https://www.mongodb.com/docs/atlas
 
 ### **Step3: Copy the code and configure **  
 
-Download the code from repo and open it in VSCode.
+Download the code from [repository](https://github.com/mongodb-partners/MEANStack_with_Atlas_on_Fargate/tree/main/code/Atlas-AppEngine-Integration) and open it in VSCode.
 Configure the MongoDB Connection string in "config.txt"
 Configure the Docker image in "docker-compose.yml" under docker-ecs
 
