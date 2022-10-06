@@ -86,9 +86,11 @@ Configure the Docker image in "docker-compose.yml" under docker-ecs
          
          docker tag <repository name>:latest <accountid>.dkr.ecr.<region>.amazonaws.com/<repository name>:latest
          
+         docker images
+         
          docker push <accountid>.dkr.ecr.<region>.amazonaws.com/<repository name>:latest
          
-         docker images
+     
          
 
 pls refer the [link](https://docs.aws.amazon.com/AmazonECR/latest/userguide/getting-started-cli.html) for reference and troubleshooting.
