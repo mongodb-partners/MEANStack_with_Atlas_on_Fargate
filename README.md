@@ -109,10 +109,15 @@ Note: While creating the docker context, it will give option for selecting the A
 
 
 ************************************************************************
+
 ? Create a Docker context using:  [Use arrows to move, type to filter]
+
 > An existing AWS profile
+
   AWS secret and token credentials
+  
   AWS environment variables
+  
 ************************************************************************
 
 
