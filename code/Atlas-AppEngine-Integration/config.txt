@@ -1,0 +1,2 @@
+[config]
+uri=mongodb+srv://venkatesh:ashwin123@iiotapp.2wqno.mongodb.net/?retryWrites=true&w=majority

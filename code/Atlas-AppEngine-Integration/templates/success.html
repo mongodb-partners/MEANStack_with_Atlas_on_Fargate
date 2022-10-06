@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Sample app</title>
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+        <base href="/">
+
+        <style>
+            body {
+              text-align: center;
+              color: red;
+            }
+        </style>
+    </head>
+    <body>
+<!--        {% for name in Names %}-->
+<!--            <p>{{ name }}</p>-->
+<!--        {% endfor %}-->
+        <h2>{{ Names }}</h2>
+        <form>
+<!--        <input type="submit" value="Close" formaction="https://gsidemo-246315.uc.r.appspot.com/"></form>-->
+            <input type="submit" value="Close" formaction="/"></form>
+    </body>
+</html>
