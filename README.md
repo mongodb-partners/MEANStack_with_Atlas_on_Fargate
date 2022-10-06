@@ -21,6 +21,13 @@ AWS Fargate is a serverless, pay-as-you-go compute engine that lets you focus on
 ## Architecture Diagram:
 ![AWS Fargate(ECS) with MongoDB Atlas](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/FargateArchitecture.png)
 
+## Pre-requisite:
+Code editor: [VSCode](https://code.visualstudio.com/download)
+Container: [Docker](https://docs.docker.com/get-docker/)
+[Docker compose](https://docs.docker.com/compose/install/)
+[AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-quickstart.html)
+
+
 ## Step by Step Fargate Deployment:
 
 
@@ -30,95 +37,63 @@ AWS Fargate is a serverless, pay-as-you-go compute engine that lets you focus on
 Please follow the [link](https://www.mongodb.com/docs/atlas/tutorial/deploy-free-tier-cluster) to setup a free cluster in MongoDB Atlas
 
 Configure the database for [network security](https://www.mongodb.com/docs/atlas/security/add-ip-address-to-list/) and [access](https://www.mongodb.com/docs/atlas/tutorial/create-mongodb-user-for-cluster/).
-         
-### **Step2: Download and containerize the application**        
 
-  Download the sample application from this repository  - " [FargateDemoApp.zip](https://github.com/Babusrinivasan76/ebsintegrationwithatlas/raw/main/ebsDemoApp.zip) ". 
-         
-  This application is having 3 APIs to register the user details to MongoDB Atlas(./api/v1/users) , to Query the user (./api/v1/login) and to check the health of the application (./api/v1/health)
-         
-  Change the .env parameters as per the MongoDB Database and collections you created in step1
-         
-  Change the database connection details in app.py
+### **Step2: Create the Elastic Container Repository(ECR)  **  
+
+                  aws ecr create-repository \
+                      --repository-name <repository name> \
+                      --image-scanning-configuration scanOnPush=true \
+                      --region <region>
+
+### **Step4: Copy the code and configure **  
+
+Download the code from repo and open it in VSCode.
+Configure the MongoDB Connection string in "config.txt"
+Configure the Docker image in "docker-compose.yml" under docker-ecs
+
+Sample code:
+
+services:
+  ecsworker:
+    image: <accountid>.dkr.ecr.<region>.amazonaws.com/<repository name>:latest
+
+
+### **Step4: Build the docker image and push to ECR **  
   
+         #!/bin/bash
+         aws ecr get-login-password --region us-east-1| docker login --username AWS --password-stdin <account_id>.dkr.ecr.<region>.amazonaws.com
+         docker build -t <repository name> . --platform=linux/amd64
+         docker tag <repository name>:latest <accountid>.dkr.ecr.<region>.amazonaws.com/<repository name>:latest
+         docker push <accountid>.dkr.ecr.<region>.amazonaws.com/<repository name>:latest
+         docker images
+    
+### **Step5: Create the ECS container and run the container ** 
 
-### **Step3: Set up the VPC, Subnet, NAT Gateway**
+         docker context create ecs  <context name>
+         
+         docker context use <contenxt name>
 
-  1.login to the AWS Console and search for the VPC Services
-
-  2.Click "Create VPC"
-
-   ![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/01-CreateVPCSubnetNAT.png)
-
-
-  3.Select "VPC and more", Type the VPC tag name and Enter the IPV4 CIDR block, 
-
-![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/02-createVPCSubnetNAT.png)
-
-
-  4.Select the number of AZs, Public and Private Subnets, NAT GW , VPC Endpoint and click "Create VPC"
-
-![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/03-createVPCSubnetNAT.png)
+         docker-compose up
 
 
+This will automatically create the AWS CloudFormation stack and deploy the stack.
 
-### **Step4: Set up the Internet Gateway(IGW)**
+Verify the the stack is completed successfully
 
-1.From the left side panel of VPC menu, select the "Internet Gateway"
+Verify the ECS cluster , services and tasks are created successfully.
 
-2. Click "Create Internet Gateway"
-
-![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/01-createIGW.png)
-
-
-3. Provide the Name Tag and clicke "Create Internet Gateway"
-
-![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/02-CreateIGW.png)
+Copy the public IP address from the running task 
 
 
-4. Attach the VPC created in the previous step, by select "Attach to VPC" from "Actions" dropdown
-
-![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/03-CreateIGW.png)
-
-
-5.Ensure the IGW is created successfully and attached with the VPC
-
-![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/04-CreateIGW-Completion.png)
-
-
-### **Step5: Set up the RouteTable for Public and Private Subnets**
-
-1.select the "Route Tables" from the left side menu of VPC Services
-
-2.Click "Create Route Table"
-
-![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/01-createpublicrt.png)
-
-3.Enter the Route table name, Select the VPC and add tags. Click "Create Route Table"
-
-![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/02-createpublicrt.png)
-
-4. Associate the public subnets
-![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/03-createpublicrt.png)
-![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/04-createpublicrt-subnetassociation.png)
-![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/05-createpublicrt-subnetassociation.png)
-
-5. Simillarly create the route table for the private subnet and associate the private subnets
-![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/06-createprivatert.png)
-![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/07-createprivatert.png)
-
-### **Step6: Set up ECS Cluster**
-
-[Follow the step provided to create the ECS Cluster](https://github.com/Babusrinivasan76/setupecscluster/blob/main/README.md)
 
 ### **Step7: Testing the Application**
 
-Test the application by invoking the endpoint (appended with the /api/v1/healthcheck)
+Test the application by invoking the <ipaddress:8000> copied from the above step.
 
 
 
 ## Summary:
 
- Any contanirized application can be deployed within no time using this template. 
- Instead of ebsdemoapp.zip , you can use your application zip file and deploy the application.
+ Hope this provide the steps to successfully deploy the containerized application on to AWS Fargate. 
+
  Pls share your feedback / queries to partners@mongodb.com
