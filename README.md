@@ -105,6 +105,17 @@ pls refer the [link](https://docs.aws.amazon.com/AmazonECR/latest/userguide/gett
          docker-compose up
 
 
+Note: While creating the docker context, it will give option for selecting the AWS authentication. Choose the default.
+
+
+************************************************************************
+? Create a Docker context using:  [Use arrows to move, type to filter]
+> An existing AWS profile
+  AWS secret and token credentials
+  AWS environment variables
+************************************************************************
+
+
 This will automatically create the AWS CloudFormation stack and deploy the stack.
 
 Verify the the stack is completed successfully
