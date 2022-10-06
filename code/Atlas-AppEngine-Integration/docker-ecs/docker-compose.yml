@@ -1,3 +1,3 @@
 services:
   ecsworker:
-    image: 979559056307.dkr.ecr.us-east-1.amazonaws.com/partner-python-atlas-app:latest
+    image: <AWS ACCOUNT ID>.dkr.ecr.<region>.amazonaws.com/<Repository Name>:latest
