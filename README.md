@@ -68,6 +68,10 @@ Configure the Docker image in "docker-compose.yml" under docker-ecs
          docker tag <repository name>:latest <accountid>.dkr.ecr.<region>.amazonaws.com/<repository name>:latest
          docker push <accountid>.dkr.ecr.<region>.amazonaws.com/<repository name>:latest
          docker images
+         
+
+pls refer the [link](https://docs.aws.amazon.com/AmazonECR/latest/userguide/getting-started-cli.html) for reference and troubleshooting.
+
     
 ### **Step5: Create the ECS container and run the container ** 
 
@@ -91,6 +95,7 @@ Copy the public IP address from the running task
 ### **Step7: Testing the Application**
 
 Test the application by invoking the <ipaddress:8000> copied from the above step.
+
 
 
 
