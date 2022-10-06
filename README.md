@@ -45,7 +45,7 @@ Configure the database for [network security](https://www.mongodb.com/docs/atlas
                       --image-scanning-configuration scanOnPush=true \
                       --region <region>
 
-### **Step4: Copy the code and configure **  
+### **Step3: Copy the code and configure **  
 
 Download the code from repo and open it in VSCode.
 Configure the MongoDB Connection string in "config.txt"
