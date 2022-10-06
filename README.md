@@ -146,13 +146,13 @@ Test the application by invoking the <public ipaddress:8000> copied from the abo
 
 ![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/Output1.png)
 ![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/Output2.png)
-
+![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/Output3.png)
 
 
 ## Troubleshoot:
 If the default VPC and Subnet are restricted to public access, a separate task can be created with the customized VPC , Subnet and Security Group.
 
-![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/Output3.png)
+
 ![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/Output4.png)
 ![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/Output3c.png)
 ![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/Output3b.png)
