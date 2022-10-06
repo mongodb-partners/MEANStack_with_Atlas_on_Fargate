@@ -53,7 +53,9 @@ Create the ECR
 
 ### **Step3: Copy the code and configure **  
 
-Download the code from [repository](https://github.com/mongodb-partners/MEANStack_with_Atlas_on_Fargate/tree/main/code/Atlas-AppEngine-Integration) and open it in VSCode.
+Git clone the code from the repository
+
+              git clone https://github.com/mongodb-partners/MEANStack_with_Atlas_on_Fargate.git
 
 Configure the MongoDB Connection string in "config.txt"
 
