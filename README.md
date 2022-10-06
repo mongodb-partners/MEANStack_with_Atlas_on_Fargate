@@ -57,7 +57,13 @@ Git clone the code from the repository
 
               git clone https://github.com/mongodb-partners/MEANStack_with_Atlas_on_Fargate.git
 
+Open the code in VSCode
+
+![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/VSCode1.png)
+
 Configure the MongoDB Connection string in "config.txt"
+
+
 
 Configure the Docker image in "docker-compose.yml" under docker-ecs
 
