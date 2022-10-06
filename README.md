@@ -42,6 +42,10 @@ Configure the database for [network security](https://www.mongodb.com/docs/atlas
 
 ### **Step2: Create the Elastic Container Repository(ECR)  **  
 
+Setup the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html) environment
+
+Create the ECR 
+
                   aws ecr create-repository \
                       --repository-name <repository name> \
                       --image-scanning-configuration scanOnPush=true \
@@ -52,12 +56,6 @@ Configure the database for [network security](https://www.mongodb.com/docs/atlas
 Download the code from [repository](https://github.com/mongodb-partners/MEANStack_with_Atlas_on_Fargate/tree/main/code/Atlas-AppEngine-Integration) and open it in VSCode.
 Configure the MongoDB Connection string in "config.txt"
 Configure the Docker image in "docker-compose.yml" under docker-ecs
-
-Sample code:
-
-services:
-  ecsworker:
-    image: <accountid>.dkr.ecr.<region>.amazonaws.com/<repository name>:latest
 
 
 ### **Step4: Build the docker image and push to ECR **  
