@@ -63,9 +63,15 @@ Open the code in VSCode
 
 Configure the MongoDB Connection string in "config.txt"
 
+![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/VSCode2.png)
+
 
 
 Configure the Docker image in "docker-compose.yml" under docker-ecs
+
+![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/VSCode3.png)
+
+
 
 
 ### **Step4: Build the docker image and push to ECR **  
