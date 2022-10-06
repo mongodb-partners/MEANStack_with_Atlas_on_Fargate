@@ -1,2 +1,2 @@
 [config]
-uri=mongodb+srv://venkatesh:ashwin123@iiotapp.2wqno.mongodb.net/?retryWrites=true&w=majority
+uri=mongodb+srv://<username>:<password>@<servername>/?retryWrites=true&w=majority
