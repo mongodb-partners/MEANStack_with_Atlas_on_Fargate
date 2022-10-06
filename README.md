@@ -25,8 +25,11 @@ AWS Fargate is a serverless, pay-as-you-go compute engine that lets you focus on
 
 
 ### **Step1: Set up the MongoDB Atlas cluster**
-         
-   MongoDB Atlas provides a free cluster setup. Pls follow the link to setup the [free cluster](https://www.mongodb.com/docs/atlas/getting-started/)
+
+
+Please follow the [link](https://www.mongodb.com/docs/atlas/tutorial/deploy-free-tier-cluster) to setup a free cluster in MongoDB Atlas
+
+Configure the database for [network security](https://www.mongodb.com/docs/atlas/security/add-ip-address-to-list/) and [access](https://www.mongodb.com/docs/atlas/tutorial/create-mongodb-user-for-cluster/).
          
 ### **Step2: Download and containerize the application**        
 
