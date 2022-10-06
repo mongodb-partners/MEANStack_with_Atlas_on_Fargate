@@ -77,10 +77,17 @@ Configure the Docker image in "docker-compose.yml" under docker-ecs
 ### **Step4: Build the docker image and push to ECR **  
   
          #!/bin/bash
+         
+         cd ./MEANStack_with_Atlas_on_Fargate/code/Atlas-AppEngine-Integration/
+         
          aws ecr get-login-password --region us-east-1| docker login --username AWS --password-stdin <account_id>.dkr.ecr.<region>.amazonaws.com
+         
          docker build -t <repository name> . --platform=linux/amd64
+         
          docker tag <repository name>:latest <accountid>.dkr.ecr.<region>.amazonaws.com/<repository name>:latest
+         
          docker push <accountid>.dkr.ecr.<region>.amazonaws.com/<repository name>:latest
+         
          docker images
          
 
