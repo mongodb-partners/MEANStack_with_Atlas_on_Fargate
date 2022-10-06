@@ -80,7 +80,7 @@ Configure the Docker image in "docker-compose.yml" under docker-ecs
          
          cd ./MEANStack_with_Atlas_on_Fargate/code/Atlas-AppEngine-Integration/
          
-         aws ecr get-login-password --region us-east-1| docker login --username AWS --password-stdin <account_id>.dkr.ecr.<region>.amazonaws.com
+         aws ecr get-login-password --region <region>| docker login --username AWS --password-stdin <account_id>.dkr.ecr.<region>.amazonaws.com
          
          docker build -t <repository name> . --platform=linux/amd64
          
