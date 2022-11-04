@@ -19,7 +19,9 @@ It also provide a free tier to test out the application / database features.
 AWS Fargate is a serverless, pay-as-you-go compute engine that lets you focus on building applications without managing servers. AWS Fargate is compatible with both Amazon Elastic Container Service (ECS) and Amazon Elastic Kubernetes Service (EKS).
 
 ## Architecture Diagram:
-![AWS Fargate(ECS) with MongoDB Atlas](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/FargateArchitecture.png)
+
+<img width="800" alt="image" src="https://user-images.githubusercontent.com/101570105/200035448-797a15d3-62d7-4a21-b780-c64c3962e8b9.png">
+
 
 ## Pre-requisite:
 Code editor: [VSCode](https://code.visualstudio.com/download)
