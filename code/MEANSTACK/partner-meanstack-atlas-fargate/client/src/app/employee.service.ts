@@ -8,7 +8,7 @@ import { Employee } from './employee';
 })
 export class EmployeeService {
   /*private url = 'http://partner-demo-eb-meanstack-dev.us-east-1.elasticbeanstalk.com:5200'; */
-  private url = 'http://3.93.76.113:5200';
+  private url = 'http://<ipaddress of the server>:5200';
   private employees$: Subject<Employee[]> = new Subject();
 
   constructor(private httpClient: HttpClient) { }
