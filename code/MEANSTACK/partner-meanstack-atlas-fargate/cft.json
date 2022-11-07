@@ -1,0 +1,354 @@
+AWSTemplateFormatVersion: 2010-09-09
+Metadata:
+  Cluster: arn:aws:ecs:us-east-1:979559056307:cluster/partner-fargate
+Resources:
+  ClientService:
+    DependsOn:
+    - ClientTCP8080Listener
+    Properties:
+      Cluster: arn:aws:ecs:us-east-1:979559056307:cluster/partner-fargate
+      DeploymentConfiguration:
+        MaximumPercent: 200
+        MinimumHealthyPercent: 100
+      DeploymentController:
+        Type: ECS
+      DesiredCount: 1
+      LaunchType: FARGATE
+      LoadBalancers:
+      - ContainerName: client
+        ContainerPort: 8080
+        TargetGroupArn:
+          Ref: ClientTCP8080TargetGroup
+      NetworkConfiguration:
+        AwsvpcConfiguration:
+          AssignPublicIp: ENABLED
+          SecurityGroups:
+          - Ref: DefaultNetwork
+          Subnets:
+          - subnet-0565fbb2a14b10b4e
+          - subnet-0e47b9a5f29b9d8ee
+      PlatformVersion: 1.4.0
+      PropagateTags: SERVICE
+      SchedulingStrategy: REPLICA
+      ServiceRegistries:
+      - RegistryArn:
+          Fn::GetAtt:
+          - ClientServiceDiscoveryEntry
+          - Arn
+      Tags:
+      - Key: com.docker.compose.project
+        Value: partner-meanstack-atlas-fargate
+      - Key: com.docker.compose.service
+        Value: client
+      TaskDefinition:
+        Ref: ClientTaskDefinition
+    Type: AWS::ECS::Service
+  ClientServiceDiscoveryEntry:
+    Properties:
+      Description: '"client" service discovery entry in Cloud Map'
+      DnsConfig:
+        DnsRecords:
+        - TTL: 60
+          Type: A
+        RoutingPolicy: MULTIVALUE
+      HealthCheckCustomConfig:
+        FailureThreshold: 1
+      Name: client
+      NamespaceId:
+        Ref: CloudMap
+    Type: AWS::ServiceDiscovery::Service
+  ClientTCP8080Listener:
+    Properties:
+      DefaultActions:
+      - ForwardConfig:
+          TargetGroups:
+          - TargetGroupArn:
+              Ref: ClientTCP8080TargetGroup
+        Type: forward
+      LoadBalancerArn:
+        Ref: LoadBalancer
+      Port: 8080
+      Protocol: TCP
+    Type: AWS::ElasticLoadBalancingV2::Listener
+  ClientTCP8080TargetGroup:
+    Properties:
+      Port: 8080
+      Protocol: TCP
+      Tags:
+      - Key: com.docker.compose.project
+        Value: partner-meanstack-atlas-fargate
+      TargetType: ip
+      VpcId: vpc-07888b5b9213d53f0
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+  ClientTaskDefinition:
+    Properties:
+      ContainerDefinitions:
+      - Command:
+        - us-east-1.compute.internal
+        - partner-meanstack-atlas-fargate.local
+        Essential: false
+        Image: docker/ecs-searchdomain-sidecar:1.0
+        LogConfiguration:
+          LogDriver: awslogs
+          Options:
+            awslogs-group:
+              Ref: LogGroup
+            awslogs-region:
+              Ref: AWS::Region
+            awslogs-stream-prefix: partner-meanstack-atlas-fargate
+        Name: Client_ResolvConf_InitContainer
+      - DependsOn:
+        - Condition: SUCCESS
+          ContainerName: Client_ResolvConf_InitContainer
+        Essential: true
+        Image: 979559056307.dkr.ecr.us-east-1.amazonaws.com/partner-meanstack-atlas-fargate-client:latest@sha256:bf069d87ca0fd5101a389f85e8ea4d1371d9236934968fd7a5e9e4246766cf18
+        LinuxParameters: {}
+        LogConfiguration:
+          LogDriver: awslogs
+          Options:
+            awslogs-group:
+              Ref: LogGroup
+            awslogs-region:
+              Ref: AWS::Region
+            awslogs-stream-prefix: partner-meanstack-atlas-fargate
+        Name: client
+        PortMappings:
+        - ContainerPort: 8080
+          HostPort: 8080
+          Protocol: tcp
+      Cpu: "256"
+      ExecutionRoleArn:
+        Ref: ClientTaskExecutionRole
+      Family: partner-meanstack-atlas-fargate-client
+      Memory: "512"
+      NetworkMode: awsvpc
+      RequiresCompatibilities:
+      - FARGATE
+    Type: AWS::ECS::TaskDefinition
+  ClientTaskExecutionRole:
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+        - Action:
+          - sts:AssumeRole
+          Condition: {}
+          Effect: Allow
+          Principal:
+            Service: ecs-tasks.amazonaws.com
+        Version: 2012-10-17
+      ManagedPolicyArns:
+      - arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy
+      - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
+      Tags:
+      - Key: com.docker.compose.project
+        Value: partner-meanstack-atlas-fargate
+      - Key: com.docker.compose.service
+        Value: client
+    Type: AWS::IAM::Role
+  CloudMap:
+    Properties:
+      Description: Service Map for Docker Compose project partner-meanstack-atlas-fargate
+      Name: partner-meanstack-atlas-fargate.local
+      Vpc: vpc-07888b5b9213d53f0
+    Type: AWS::ServiceDiscovery::PrivateDnsNamespace
+  Default5200Ingress:
+    Properties:
+      CidrIp: 0.0.0.0/0
+      Description: server:5200/tcp on default network
+      FromPort: 5200
+      GroupId:
+        Ref: DefaultNetwork
+      IpProtocol: TCP
+      ToPort: 5200
+    Type: AWS::EC2::SecurityGroupIngress
+  Default8080Ingress:
+    Properties:
+      CidrIp: 0.0.0.0/0
+      Description: client:8080/tcp on default network
+      FromPort: 8080
+      GroupId:
+        Ref: DefaultNetwork
+      IpProtocol: TCP
+      ToPort: 8080
+    Type: AWS::EC2::SecurityGroupIngress
+  DefaultNetwork:
+    Properties:
+      GroupDescription: partner-meanstack-atlas-fargate Security Group for default
+        network
+      Tags:
+      - Key: com.docker.compose.project
+        Value: partner-meanstack-atlas-fargate
+      - Key: com.docker.compose.network
+        Value: partner-meanstack-atlas-fargate_default
+      VpcId: vpc-07888b5b9213d53f0
+    Type: AWS::EC2::SecurityGroup
+  DefaultNetworkIngress:
+    Properties:
+      Description: Allow communication within network default
+      GroupId:
+        Ref: DefaultNetwork
+      IpProtocol: "-1"
+      SourceSecurityGroupId:
+        Ref: DefaultNetwork
+    Type: AWS::EC2::SecurityGroupIngress
+  LoadBalancer:
+    Properties:
+      LoadBalancerAttributes:
+      - Key: load_balancing.cross_zone.enabled
+        Value: "true"
+      Scheme: internet-facing
+      Subnets:
+      - subnet-0565fbb2a14b10b4e
+      - subnet-0e47b9a5f29b9d8ee
+      Tags:
+      - Key: com.docker.compose.project
+        Value: partner-meanstack-atlas-fargate
+      Type: network
+    Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+  LogGroup:
+    Properties:
+      LogGroupName: /docker-compose/partner-meanstack-atlas-fargate
+    Type: AWS::Logs::LogGroup
+  ServerService:
+    DependsOn:
+    - ServerTCP5200Listener
+    Properties:
+      Cluster: arn:aws:ecs:us-east-1:979559056307:cluster/partner-fargate
+      DeploymentConfiguration:
+        MaximumPercent: 200
+        MinimumHealthyPercent: 100
+      DeploymentController:
+        Type: ECS
+      DesiredCount: 1
+      LaunchType: FARGATE
+      LoadBalancers:
+      - ContainerName: server
+        ContainerPort: 5200
+        TargetGroupArn:
+          Ref: ServerTCP5200TargetGroup
+      NetworkConfiguration:
+        AwsvpcConfiguration:
+          AssignPublicIp: ENABLED
+          SecurityGroups:
+          - Ref: DefaultNetwork
+          Subnets:
+          - subnet-0565fbb2a14b10b4e
+          - subnet-0e47b9a5f29b9d8ee
+      PlatformVersion: 1.4.0
+      PropagateTags: SERVICE
+      SchedulingStrategy: REPLICA
+      ServiceRegistries:
+      - RegistryArn:
+          Fn::GetAtt:
+          - ServerServiceDiscoveryEntry
+          - Arn
+      Tags:
+      - Key: com.docker.compose.project
+        Value: partner-meanstack-atlas-fargate
+      - Key: com.docker.compose.service
+        Value: server
+      TaskDefinition:
+        Ref: ServerTaskDefinition
+    Type: AWS::ECS::Service
+  ServerServiceDiscoveryEntry:
+    Properties:
+      Description: '"server" service discovery entry in Cloud Map'
+      DnsConfig:
+        DnsRecords:
+        - TTL: 60
+          Type: A
+        RoutingPolicy: MULTIVALUE
+      HealthCheckCustomConfig:
+        FailureThreshold: 1
+      Name: server
+      NamespaceId:
+        Ref: CloudMap
+    Type: AWS::ServiceDiscovery::Service
+  ServerTCP5200Listener:
+    Properties:
+      DefaultActions:
+      - ForwardConfig:
+          TargetGroups:
+          - TargetGroupArn:
+              Ref: ServerTCP5200TargetGroup
+        Type: forward
+      LoadBalancerArn:
+        Ref: LoadBalancer
+      Port: 5200
+      Protocol: TCP
+    Type: AWS::ElasticLoadBalancingV2::Listener
+  ServerTCP5200TargetGroup:
+    Properties:
+      Port: 5200
+      Protocol: TCP
+      Tags:
+      - Key: com.docker.compose.project
+        Value: partner-meanstack-atlas-fargate
+      TargetType: ip
+      VpcId: vpc-07888b5b9213d53f0
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+  ServerTaskDefinition:
+    Properties:
+      ContainerDefinitions:
+      - Command:
+        - us-east-1.compute.internal
+        - partner-meanstack-atlas-fargate.local
+        Essential: false
+        Image: docker/ecs-searchdomain-sidecar:1.0
+        LogConfiguration:
+          LogDriver: awslogs
+          Options:
+            awslogs-group:
+              Ref: LogGroup
+            awslogs-region:
+              Ref: AWS::Region
+            awslogs-stream-prefix: partner-meanstack-atlas-fargate
+        Name: Server_ResolvConf_InitContainer
+      - DependsOn:
+        - Condition: SUCCESS
+          ContainerName: Server_ResolvConf_InitContainer
+        Essential: true
+        Image: 979559056307.dkr.ecr.us-east-1.amazonaws.com/partner-meanstack-atlas-fargate-server:latest@sha256:84f313b95f2bfd39fb8a93e8af4c96df86480f18e7e00aed506a520934888f51
+        LinuxParameters: {}
+        LogConfiguration:
+          LogDriver: awslogs
+          Options:
+            awslogs-group:
+              Ref: LogGroup
+            awslogs-region:
+              Ref: AWS::Region
+            awslogs-stream-prefix: partner-meanstack-atlas-fargate
+        Name: server
+        PortMappings:
+        - ContainerPort: 5200
+          HostPort: 5200
+          Protocol: tcp
+      Cpu: "256"
+      ExecutionRoleArn:
+        Ref: ServerTaskExecutionRole
+      Family: partner-meanstack-atlas-fargate-server
+      Memory: "512"
+      NetworkMode: awsvpc
+      RequiresCompatibilities:
+      - FARGATE
+    Type: AWS::ECS::TaskDefinition
+  ServerTaskExecutionRole:
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+        - Action:
+          - sts:AssumeRole
+          Condition: {}
+          Effect: Allow
+          Principal:
+            Service: ecs-tasks.amazonaws.com
+        Version: 2012-10-17
+      ManagedPolicyArns:
+      - arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy
+      - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
+      Tags:
+      - Key: com.docker.compose.project
+        Value: partner-meanstack-atlas-fargate
+      - Key: com.docker.compose.service
+        Value: server
+    Type: AWS::IAM::Role
