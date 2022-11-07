@@ -1,20 +1,15 @@
 version: "3"
 
-x-aws-vpc: "vpc-07888b5b9213d53f0"
-x-aws-cluster: "partner-fargate"
-x-aws-security-group: "sg-0b4d46b480cc1dfe6"
-x-aws-subnet: "subnet-0e47b9a5f29b9d8ee"
-
 services:
   client:
-    image: 979559056307.dkr.ecr.us-east-1.amazonaws.com/partner-meanstack-atlas-fargate-client
+    image: <accountid>.dkr.ecr.<region>.amazonaws.com/partner-meanstack-atlas-fargate-client
     platform: linux/amd64
     build: ./client
     ports:
       - 8080
   server:
     build: ./server
-    image: 979559056307.dkr.ecr.us-east-1.amazonaws.com/partner-meanstack-atlas-fargate-server
+    image: <accountid>.dkr.ecr.<region>.amazonaws.com/partner-meanstack-atlas-fargate-server
     platform: linux/amd64
     ports:
       - 5200
