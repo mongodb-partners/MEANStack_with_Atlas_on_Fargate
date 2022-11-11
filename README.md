@@ -178,7 +178,14 @@ Verify the ECS cluster , services and tasks are created successfully.
 ![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/ECS2.png)
 
 
-Copy the public IP address from the running task 
+Copy the public IP address from the server task 
+
+<img width="1204" alt="image" src="https://user-images.githubusercontent.com/101570105/201412861-4127e92c-c9cb-4907-9e18-f6d01f4f6233.png">
+
+
+update the private uri in code with the copied IP address. (partner-meanstack-atlas-fargate --> client --> src --> app --> employee.service.ts )
+
+
 
 
 
