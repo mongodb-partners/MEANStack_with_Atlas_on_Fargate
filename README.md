@@ -67,6 +67,8 @@ Select IAM Type as IAM role in MongoDB Atlas for the database user and  provide 
 Git clone the code from the repository
 
               git clone https://github.com/mongodb-partners/MEANStack_with_Atlas_on_Fargate.git
+              
+              cd code/MEANSTACK/partner-meanstack-atlas-fargate
 
 Open the code in VSCode
 
