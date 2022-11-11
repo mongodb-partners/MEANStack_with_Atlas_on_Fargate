@@ -93,7 +93,7 @@ Ensure the docker is up and running. if not start the [docker deamon](https://do
 
 Setup the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html) environment
 
-Create the ECR 
+Create the ECR and note down the URI for each of the repository.
 
                   	aws ecr create-repository \
                   --repository-name partner-meanstack-atlas-fargate-client \
@@ -105,6 +105,8 @@ Create the ECR
                   --repository-name partner-meanstack-atlas-fargate-server \
                   --image-scanning-configuration scanOnPush=true \
                   --region us-east-1
+
+
 
 
 
