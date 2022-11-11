@@ -70,6 +70,29 @@ Git clone the code from the repository
               
               cd code/MEANSTACK/partner-meanstack-atlas-fargate
 
+
+
+### **Step3: Create the Elastic Container Repository(ECR)  **  
+
+Setup the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html) environment
+
+Create the ECR and note down the URI for each of the repository.
+
+                  	aws ecr create-repository \
+                  --repository-name partner-meanstack-atlas-fargate-client \
+                  --image-scanning-configuration scanOnPush=true \
+                  --region us-east-1
+                  
+                  
+                   aws ecr create-repository \
+                  --repository-name partner-meanstack-atlas-fargate-server \
+                  --image-scanning-configuration scanOnPush=true \
+                  --region us-east-1
+
+
+
+### **Step3a: Open the code and update the configuration details for .env and docker-compose.yaml **  
+
 Open the code in VSCode
 
 <img width="1204" alt="image" src="https://user-images.githubusercontent.com/101570105/201373972-3da85a7a-76c0-45d2-a2fd-2b172e134985.png">
@@ -90,22 +113,6 @@ Ensure the docker is up and running. if not start the [docker deamon](https://do
 
 
 
-### **Step3: Create the Elastic Container Repository(ECR)  **  
-
-Setup the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html) environment
-
-Create the ECR and note down the URI for each of the repository.
-
-                  	aws ecr create-repository \
-                  --repository-name partner-meanstack-atlas-fargate-client \
-                  --image-scanning-configuration scanOnPush=true \
-                  --region us-east-1
-                  
-                  
-                   aws ecr create-repository \
-                  --repository-name partner-meanstack-atlas-fargate-server \
-                  --image-scanning-configuration scanOnPush=true \
-                  --region us-east-1
 
 
 
