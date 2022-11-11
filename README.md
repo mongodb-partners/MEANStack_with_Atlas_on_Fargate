@@ -42,14 +42,14 @@ Please follow the [link](https://www.mongodb.com/docs/atlas/tutorial/deploy-free
 
 
 
-### **Step1b: Configure the authentication **
+### Step1b: Configure the Network access **
 
 Configure the database for [network security](https://www.mongodb.com/docs/atlas/security/add-ip-address-to-list/) 
 
 
 
 
-### **Step1c: Set up the Role based authorization**
+### Step1c: Set up the Role based Authencation
 
 Follow the [link](https://www.mongodb.com/docs/atlas/security/passwordless-authentication/#aws-ecs-fargate:~:text=an%20IAM%20role.-,AWS%20ECS%20Fargate,-To%20learn%20how) for IAM Role based authorization
 
