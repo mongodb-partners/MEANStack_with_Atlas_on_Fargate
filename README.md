@@ -127,10 +127,9 @@ Ensure the docker is up and running. if not start the [docker deamon](https://do
 
 update the region and ECR URI in the below command.
 
-  
-         #!/bin/bash
+ensure the current directory in ...code/partner-meanstack-atlas-fargate
+
          
-         cd ./MEANStack_with_Atlas_on_Fargate/code/partner-meanstack-atlas-fargate
          
          aws ecr get-login-password --region <region>| docker login --username AWS --password-stdin <account_id>.dkr.ecr.<region>.amazonaws.com
          
