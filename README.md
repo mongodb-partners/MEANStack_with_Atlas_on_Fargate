@@ -41,9 +41,11 @@ Command Line execution: [AWS CLI](https://docs.aws.amazon.com/cli/latest/usergui
 Please follow the [link](https://www.mongodb.com/docs/atlas/tutorial/deploy-free-tier-cluster) to setup a free cluster in MongoDB Atlas
 
 
+
 ### **Step1b: Configure the authentication **
 
-Configure the database for [network security](https://www.mongodb.com/docs/atlas/security/add-ip-address-to-list/) and [access](https://www.mongodb.com/docs/atlas/tutorial/create-mongodb-user-for-cluster/).
+Configure the database for [network security](https://www.mongodb.com/docs/atlas/security/add-ip-address-to-list/) 
+
 
 
 
