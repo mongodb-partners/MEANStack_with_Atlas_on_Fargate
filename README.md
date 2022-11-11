@@ -83,7 +83,7 @@ Configure the MongoDB Connection string in ".env" in partner-meanstack-atlas-far
 
 
 
-### **Step3: Create the Elastic Container Repository(ECR)  **  
+### **Step3a: Create the Elastic Container Repository(ECR)  **  
 
 Setup the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html) environment
 
@@ -102,7 +102,7 @@ Create the ECR and note down the URI for each of the repository.
 
 
 
-### **Step3a: Open the code and update for docker-compose.yaml **  
+### **Step3b: Open the code and update for docker-compose.yaml **  
 
 
 
@@ -122,10 +122,13 @@ Ensure the docker is up and running. if not start the [docker deamon](https://do
 
 
 ### **Step4: Build the docker image and push to ECR **  
+
+update the region and ECR URI in the below command.
+
   
          #!/bin/bash
          
-         cd ./MEANStack_with_Atlas_on_Fargate/code/Atlas-AppEngine-Integration/
+         cd ./MEANStack_with_Atlas_on_Fargate/code/partner-meanstack-atlas-fargate
          
          aws ecr get-login-password --region <region>| docker login --username AWS --password-stdin <account_id>.dkr.ecr.<region>.amazonaws.com
          
