@@ -135,21 +135,20 @@ ensure the current directory in ...code/partner-meanstack-atlas-fargate
          
          docker context use default
 
-         docker compose up
-
+         docker compose build
+	 
+	 docker compose push
 	
-  Control C to break
+	 docker context create ecs  partner-meanstack-atlas-fargate
+
+	 docker context use partner-meanstack-atlas-fargate
+	
+	 docker compose up
   
 	
-	        docker images -- confirm the image is available
+	    
 	
-	        docker compose push
-	
-	        docker context create ecs  partner-meanstack-atlas-fargate
-	
-	        docker context use partner-meanstack-atlas-fargate
-	
-	        docker compose up
+	        
 
 
 
