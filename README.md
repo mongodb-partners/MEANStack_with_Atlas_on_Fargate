@@ -70,16 +70,17 @@ Git clone the code from the repository
 
 Open the code in VSCode
 
-![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/VSCode1.png)
+<img width="1204" alt="image" src="https://user-images.githubusercontent.com/101570105/201373972-3da85a7a-76c0-45d2-a2fd-2b172e134985.png">
 
-Configure the MongoDB Connection string in "config.txt"
 
-![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/VSCode2.png)
+Configure the MongoDB Connection string in ".env"
+
+<img width="1204" alt="image" src="https://user-images.githubusercontent.com/101570105/201374139-0aacba37-81af-4d4e-bd05-759e6522caed.png">
 
 
 Configure the Docker image in "docker-compose.yml" under docker-ecs
 
-![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/VSCode3.png)
+<img width="1204" alt="image" src="https://user-images.githubusercontent.com/101570105/201374335-6a888c76-9985-40b8-93d7-e3b8fa17701b.png">
 
 
 Ensure the docker is up and running. if not start the [docker deamon](https://docs.docker.com/config/daemon/)
