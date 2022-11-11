@@ -54,9 +54,9 @@ Configure the database for [network security](https://www.mongodb.com/docs/atlas
 Follow the [link](https://www.mongodb.com/docs/atlas/security/passwordless-authentication/#aws-ecs-fargate:~:text=an%20IAM%20role.-,AWS%20ECS%20Fargate,-To%20learn%20how) for IAM Role based authentication for [AWS Fargate](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html#create-task-execution-role)
 
 
-Copy the ARN created for the role.
+Copy the ARN created for the role
 
-Select IAM Type as IAM role in MongoDB Atlas for the database user and  provide the ARN as shown below.
+Select IAM Type as IAM role in MongoDB Atlas for the database user and  provide the ARN as shown below
 
 ![image](https://user-images.githubusercontent.com/114057324/201102950-4176fdc2-d3d7-4743-bef7-738553f75bd4.png)
 
@@ -75,7 +75,7 @@ Open the code in VSCode
 <img width="1204" alt="image" src="https://user-images.githubusercontent.com/101570105/201373972-3da85a7a-76c0-45d2-a2fd-2b172e134985.png">
 
 
-Configure the MongoDB Connection string in ".env"
+Configure the MongoDB Connection string in ".env" in partner-meanstack-atlas-fargate --> server --> .env file.
 
 <img width="1204" alt="image" src="https://user-images.githubusercontent.com/101570105/201374139-0aacba37-81af-4d4e-bd05-759e6522caed.png">
 
