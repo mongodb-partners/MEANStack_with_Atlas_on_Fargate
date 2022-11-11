@@ -226,7 +226,7 @@ copy the public ip address of the client task
 
 ### **Step7: Testing the Application**
 
-Test the application by invoking the <public ipaddress:8080> copied from the above step.
+Test the application by invoking the public ipaddress:8080 copied from the above step.
 
 
 <img width="1637" alt="image" src="https://user-images.githubusercontent.com/101570105/201416331-d9f891fb-fd5c-4e69-9824-02fb6b78cb80.png">
