@@ -200,14 +200,29 @@ complete the rebuild.
 		docker compose up
 		
 
-ensure the both the client and server tasks are up and running after the update.
+Ensure the both the client and server tasks are up and running after the update.
+
+<img width="1723" alt="image" src="https://user-images.githubusercontent.com/101570105/201417465-06cd97ec-561b-4d73-ba4e-affa1f79db33.png">
+
+
+
+Ensure the AWS Cloud map service is registered with both client and server services.
+
+<img width="1723" alt="image" src="https://user-images.githubusercontent.com/101570105/201417137-036036f9-c93c-466a-9c6c-7f4605389300.png">
+
+
+copy the public ip address of the client task
+
+<img width="1696" alt="image" src="https://user-images.githubusercontent.com/101570105/201416515-4fc6f497-cd4d-4f44-b885-bd1b144ce6eb.png">
 
 
 
 ### **Step7: Testing the Application**
 
-Test the application by invoking the <public ipaddress:8000> copied from the above step.
+Test the application by invoking the <public ipaddress:8080> copied from the above step.
 
+
+<img width="1637" alt="image" src="https://user-images.githubusercontent.com/101570105/201416331-d9f891fb-fd5c-4e69-9824-02fb6b78cb80.png">
 
 
 
