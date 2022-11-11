@@ -151,21 +151,7 @@ update the region and ECR URI in the below command.
 	        docker context use partner-meanstack-atlas-fargate
 	
 	        docker compose up
-          
-          
-![image](https://user-images.githubusercontent.com/101570105/201389191-505088e3-64ff-425c-9975-704ebc312f32.png)
 
-
-pls refer the [link](https://docs.aws.amazon.com/AmazonECR/latest/userguide/getting-started-cli.html) for reference and troubleshooting.
-
-    
-### **Step5: Create the ECS container and run the container ** 
-
-         docker context create ecs  <context name>
-         
-         docker context use <contenxt name>
-
-         docker-compose up
 
 
 Note: While creating the docker context, it will give option for selecting the AWS authentication. Choose the default.
