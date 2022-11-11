@@ -60,18 +60,9 @@ Select IAM Type as IAM role in MongoDB Atlas for the database user and  provide 
 
 ![image](https://user-images.githubusercontent.com/114057324/201102950-4176fdc2-d3d7-4743-bef7-738553f75bd4.png)
 
-### **Step2: Create the Elastic Container Repository(ECR)  **  
 
-Setup the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html) environment
 
-Create the ECR 
-
-                  aws ecr create-repository \
-                      --repository-name <repository name> \
-                      --image-scanning-configuration scanOnPush=true \
-                      --region <region>
-
-### **Step3: Copy the code and configure **  
+### **Step2: Copy the code and configure **  
 
 Git clone the code from the repository
 
@@ -92,6 +83,19 @@ Configure the Docker image in "docker-compose.yml" under docker-ecs
 
 
 Ensure the docker is up and running. if not start the [docker deamon](https://docs.docker.com/config/daemon/)
+
+
+
+### **Step3: Create the Elastic Container Repository(ECR)  **  
+
+Setup the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html) environment
+
+Create the ECR 
+
+                  aws ecr create-repository \
+                      --repository-name <repository name> \
+                      --image-scanning-configuration scanOnPush=true \
+                      --region <region>
 
 
 ### **Step4: Build the docker image and push to ECR **  
