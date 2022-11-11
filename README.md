@@ -155,17 +155,6 @@ update the region and ECR URI in the below command.
           
 ![image](https://user-images.githubusercontent.com/101570105/201389191-505088e3-64ff-425c-9975-704ebc312f32.png)
 
-         
-         docker build -t <repository name> . --platform=linux/amd64
-         
-         docker tag <repository name>:latest <accountid>.dkr.ecr.<region>.amazonaws.com/<repository name>:latest
-         
-         docker images
-         
-         docker push <accountid>.dkr.ecr.<region>.amazonaws.com/<repository name>:latest
-         
-     
-         
 
 pls refer the [link](https://docs.aws.amazon.com/AmazonECR/latest/userguide/getting-started-cli.html) for reference and troubleshooting.
 
