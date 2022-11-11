@@ -185,7 +185,22 @@ Copy the public IP address from the server task
 
 update the private uri in code with the copied IP address. (partner-meanstack-atlas-fargate --> client --> src --> app --> employee.service.ts )
 
+<img width="1259" alt="image" src="https://user-images.githubusercontent.com/101570105/201414667-6d388869-1ff9-4af6-8fc0-010eb5efdb7b.png">
 
+complete the rebuild.
+
+		docker compose use default
+		
+		docker compose build
+		
+		docker compose push
+		
+		docker context use partner-meanstack-atlas-fargate
+
+		docker compose up
+		
+
+ensure the both the client and server tasks are up and running after the update.
 
 
 
@@ -193,18 +208,7 @@ update the private uri in code with the copied IP address. (partner-meanstack-at
 
 Test the application by invoking the <public ipaddress:8000> copied from the above step.
 
-![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/Output1.png)
-![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/Output2.png)
-![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/Output3.png)
-![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/Output4.png)
 
-## Troubleshoot:
-If the default VPC and Subnet are restricted to public access, a separate task can be created with the customized VPC , Subnet and Security Group.
-
-![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/ECS3.png)
-![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/ECS4.png)
-![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/ECS3c.png)
-![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/ECS3b.png)
 
 
 ## Summary:
