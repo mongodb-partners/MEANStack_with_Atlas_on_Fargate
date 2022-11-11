@@ -80,7 +80,8 @@ Configure the MongoDB Connection string in ".env" in partner-meanstack-atlas-far
 <img width="1204" alt="image" src="https://user-images.githubusercontent.com/101570105/201374139-0aacba37-81af-4d4e-bd05-759e6522caed.png">
 
 
-Configure the Docker image in "docker-compose.yml" under docker-ecs
+Configure the Docker image in "docker-compose.yml" in partner-meanstack-atlas-fargate folder.
+Update the details for VPC, image and platform. For the image, paste the URI copied from earlier step.
 
 <img width="1204" alt="image" src="https://user-images.githubusercontent.com/101570105/201374335-6a888c76-9985-40b8-93d7-e3b8fa17701b.png">
 
