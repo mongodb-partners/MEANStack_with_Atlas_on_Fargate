@@ -190,7 +190,7 @@ Copy the public IP address from the server task
 <img width="1204" alt="image" src="https://user-images.githubusercontent.com/101570105/201412861-4127e92c-c9cb-4907-9e18-f6d01f4f6233.png">
 
 
-update the private uri in code with the copied IP address. (partner-meanstack-atlas-fargate --> client --> src --> app --> employee.service.ts )
+update the private url in code with the copied IP address. (partner-meanstack-atlas-fargate --> client --> src --> app --> employee.service.ts )
 
 <img width="1259" alt="image" src="https://user-images.githubusercontent.com/101570105/201414667-6d388869-1ff9-4af6-8fc0-010eb5efdb7b.png">
 
