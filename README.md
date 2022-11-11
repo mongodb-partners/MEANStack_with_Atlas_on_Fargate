@@ -109,6 +109,8 @@ Create the ECR and note down the URI for each of the repository.
 Configure the Docker image in "docker-compose.yml" in partner-meanstack-atlas-fargate folder.
 Update the details for x-aws-vpc, images of both server and client and platform. For the image, paste the URI copied from earlier step.
 
+Ensure the VPC is having atleast two public subnets in different AZs. if any of the subnets are in the same AZs, the docker-compose up command will fail.
+
 <img width="1204" alt="image" src="https://user-images.githubusercontent.com/101570105/201374335-6a888c76-9985-40b8-93d7-e3b8fa17701b.png">
 
 
