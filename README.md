@@ -130,7 +130,7 @@ update the region and ECR URI in the below command.
 ensure the current directory in ...code/partner-meanstack-atlas-fargate
 
 
-		aws ecr get-login-password --region <region>| docker login --username AWS --password-stdin <account_id>.dkr.ecr.<region>.amazonaws.com
+		aws ecr get-login-password --region us-east-1| docker login --username AWS --password-stdin <account_id>.dkr.ecr.us-east-1.amazonaws.com
 
 		docker context use default
 
