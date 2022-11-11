@@ -175,8 +175,11 @@ Verify the the stack is completed successfully
 
 Verify the ECS cluster , services and tasks are created successfully.
 
-![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/ECS1.png)
-![](https://github.com/Babusrinivasan76/fargateintegrationwithatlas/blob/main/images/ECS2.png)
+<img width="1724" alt="image" src="https://user-images.githubusercontent.com/101570105/201421165-d5f4c212-ae2f-4419-b2e6-14e009128009.png">
+
+
+<img width="1724" alt="image" src="https://user-images.githubusercontent.com/101570105/201420271-1eb283a9-d8c8-42af-8147-32a61cd59e52.png">
+
 
 
 Copy the public IP address from the server task 
