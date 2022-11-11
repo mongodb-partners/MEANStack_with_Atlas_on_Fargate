@@ -111,7 +111,8 @@ Update the details for x-aws-vpc, images of both server and client and platform.
 
 Ensure the VPC is having atleast two public subnets in different AZs. if any of the subnets are in the same AZs, the docker-compose up command will fail.
 
-<img width="1204" alt="image" src="https://user-images.githubusercontent.com/101570105/201374335-6a888c76-9985-40b8-93d7-e3b8fa17701b.png">
+<img width="1290" alt="image" src="https://user-images.githubusercontent.com/101570105/201418021-295844f4-103b-4b47-8bf7-772813f216bd.png">
+
 
 
 Ensure the docker is up and running. if not start the [docker deamon](https://docs.docker.com/config/daemon/)
