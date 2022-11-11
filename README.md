@@ -126,9 +126,9 @@ Ensure the docker is up and running. if not start the [docker deamon](https://do
 
 ### **Step4: Build the docker image and push to ECR **  
 
-update the region and ECR URI in the below command.
+update the ECR URI with the account_id in the below command.
 
-ensure the current directory in ...code/partner-meanstack-atlas-fargate
+ensure the current directory is ...code/partner-meanstack-atlas-fargate
 
 
 		aws ecr get-login-password --region us-east-1| docker login --username AWS --password-stdin <account_id>.dkr.ecr.us-east-1.amazonaws.com
