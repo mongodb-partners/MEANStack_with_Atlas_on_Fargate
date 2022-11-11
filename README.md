@@ -95,10 +95,17 @@ Setup the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configu
 
 Create the ECR 
 
-                  aws ecr create-repository \
-                      --repository-name <repository name> \
-                      --image-scanning-configuration scanOnPush=true \
-                      --region <region>
+                  	aws ecr create-repository \
+                  --repository-name partner-meanstack-atlas-fargate-client \
+                  --image-scanning-configuration scanOnPush=true \
+                  --region us-east-1
+                  
+                  
+                  	7. aws ecr create-repository \
+                  --repository-name partner-meanstack-atlas-fargate-server \
+                  --image-scanning-configuration scanOnPush=true \
+                  --region us-east-1
+
 
 
 ### **Step4: Build the docker image and push to ECR **  
