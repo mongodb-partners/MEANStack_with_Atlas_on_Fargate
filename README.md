@@ -76,7 +76,10 @@ Open the code in VSCode
 
 Configure the MongoDB Connection string in ".env" in partner-meanstack-atlas-fargate --> server --> .env file.
 
-<img width="1204" alt="image" src="https://user-images.githubusercontent.com/101570105/201374139-0aacba37-81af-4d4e-bd05-759e6522caed.png">
+sample: ATLAS_URI=mongodb+srv://<servername>/?authSource=%24external&authMechanism=MONGODB-AWS
+
+<img width="1204" alt="image" src="https://user-images.githubusercontent.com/101570105/201385351-e462d966-615a-40ca-8be7-0494c7cb90a3.png">
+
 
 
 
