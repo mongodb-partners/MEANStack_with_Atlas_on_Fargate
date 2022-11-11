@@ -134,6 +134,28 @@ update the region and ECR URI in the below command.
          
          aws ecr get-login-password --region <region>| docker login --username AWS --password-stdin <account_id>.dkr.ecr.<region>.amazonaws.com
          
+         docker context use default
+
+         docker compose up
+
+	
+  Control C to break
+  
+	
+	        docker images -- confirm the image is available
+	
+	        docker compose push
+	
+	        docker context create ecs  partner-meanstack-atlas-fargate
+	
+	        docker context use partner-meanstack-atlas-fargate
+	
+	        docker compose up
+          
+          
+![image](https://user-images.githubusercontent.com/101570105/201389191-505088e3-64ff-425c-9975-704ebc312f32.png)
+
+         
          docker build -t <repository name> . --platform=linux/amd64
          
          docker tag <repository name>:latest <accountid>.dkr.ecr.<region>.amazonaws.com/<repository name>:latest
