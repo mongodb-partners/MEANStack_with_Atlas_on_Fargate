@@ -54,6 +54,9 @@ Configure the database for [network security](https://www.mongodb.com/docs/atlas
 Follow the [link](https://www.mongodb.com/docs/atlas/security/passwordless-authentication/#aws-ecs-fargate:~:text=an%20IAM%20role.-,AWS%20ECS%20Fargate,-To%20learn%20how) for IAM Role based authentication for [AWS Fargate](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html#create-task-execution-role)
 
 
+copy the ARN created for the role.
+
+Create new user as AWS IAM role in MongoDB Atlas, by providing the ARN as shown below.
 
 ![image](https://user-images.githubusercontent.com/114057324/201102950-4176fdc2-d3d7-4743-bef7-738553f75bd4.png)
 
