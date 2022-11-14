@@ -107,7 +107,8 @@ Create the ECR and note down the URI for each of the repository.
 
 
 Configure the Docker image in "docker-compose.yml" in partner-meanstack-atlas-fargate folder.
-Update the details for x-aws-vpc, images of both server and client and platform. For the image, paste the URI copied from earlier step.
+
+Update the details for x-aws-vpc , x-aws-role, images of both server and client and platform. For the image, paste the URI copied from earlier step.
 
 Ensure the VPC is having atleast two public subnets in different AZs. if any of the subnets are in the same AZs, the docker-compose up command will fail.
 
@@ -115,7 +116,7 @@ Ensure the VPC is having atleast two public subnets in different AZs. if any of 
 
 
 
-Ensure the docker is up and running. if not start the [docker deamon](https://docs.docker.com/config/daemon/)
+Ensure the docker desktop is up and running. if not start the [docker deamon](https://docs.docker.com/config/daemon/)
 
 
 
@@ -185,14 +186,16 @@ Verify the ECS cluster , task definition and services are created successfully.
 
 
 
-Copy the public IP address from the server task 
+Copy the DNS Name from the Load Balancer
 
-<img width="1204" alt="image" src="https://user-images.githubusercontent.com/101570105/201412861-4127e92c-c9cb-4907-9e18-f6d01f4f6233.png">
+<img width="1728" alt="image" src="https://user-images.githubusercontent.com/101570105/201686833-ea1162e2-b64e-4287-9ec7-4418f6f6bf22.png">
 
 
-update the private url in code with the copied IP address. (partner-meanstack-atlas-fargate --> client --> src --> app --> employee.service.ts )
+update the private url in code with the copied DNS Name. (partner-meanstack-atlas-fargate --> client --> src --> app --> employee.service.ts )
 
-<img width="1259" alt="image" src="https://user-images.githubusercontent.com/101570105/201414667-6d388869-1ff9-4af6-8fc0-010eb5efdb7b.png">
+<img width="1395" alt="image" src="https://user-images.githubusercontent.com/101570105/201687263-25bfc59b-efb0-4890-808a-1aac91ccb912.png">
+
+Ensure the code is saved successfully.
 
 complete the rebuild.
 
