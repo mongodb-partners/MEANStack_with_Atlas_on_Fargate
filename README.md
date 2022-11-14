@@ -53,6 +53,12 @@ Configure the database for [network security](https://www.mongodb.com/docs/atlas
 
 Follow the [link](https://www.mongodb.com/docs/atlas/security/passwordless-authentication/#aws-ecs-fargate:~:text=an%20IAM%20role.-,AWS%20ECS%20Fargate,-To%20learn%20how) for IAM Role based authentication for [AWS Fargate](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html#create-task-execution-role)
 
+On successfull creation of the role, click "Add permissions" and select "Attach policies" to add "AmazonEC2ContainerRegistryReadOnly" policy to the role.
+
+
+<img width="1725" alt="image" src="https://user-images.githubusercontent.com/101570105/201688148-d3ad49a4-a067-44ef-8860-c7350e28cda1.png">
+
+
 
 Copy the ARN created for the role
 
