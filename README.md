@@ -156,7 +156,7 @@ ensure the current directory is ...code/partner-meanstack-atlas-fargate
 
 
 
-Note: While creating the docker context, it will give option for selecting the AWS authentication. Choose the default.
+Note: While creating the docker context, it will give option for selecting the AWS authentication. Choose the default. Please refer [link](https://docs.docker.com/cloud/ecs-integration/) for further details
 
 
 ************************************************************************
