@@ -26,7 +26,7 @@ AWS Fargate is a serverless, pay-as-you-go compute engine that lets you focus on
 ## Pre-requisite:
 Code editor: [VSCode](https://code.visualstudio.com/download)
 
-Container: [Docker](https://docs.docker.com/get-docker/) and  [Docker desktop (for docker compose)](https://www.docker.com/products/docker-desktop/)
+Container: [Docker Desktop (with docker compose)](https://www.docker.com/products/docker-desktop/)
 
 Command Line execution: [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-quickstart.html)
 
