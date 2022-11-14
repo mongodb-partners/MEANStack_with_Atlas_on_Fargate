@@ -204,7 +204,7 @@ update the private url in code with the copied DNS Name. (partner-meanstack-atla
 
 Ensure the code is saved successfully.
 
-complete the rebuild.
+complete the rebuild. It will be a rolling update and the changes will be deployed, without impact to the running instances.
 
 		docker compose use default
 		
