@@ -1,17 +1,18 @@
 version: "3"
 
-x-aws-vpc: vpc-06ef6755e68XXX
+x-aws-vpc: vpc-XXXXXXXXXXX
+x-aws-role: ecsTaskExecutionRole
 
 services:
   client:
-    image: <accountid>.dkr.ecr.<region>.amazonaws.com/partner-meanstack-atlas-fargate-client
+    image: <accountid>.dkr.ecr.us-east-1.amazonaws.com/partner-meanstack-atlas-fargate-client
     platform: linux/amd64
     build: ./client
     ports:
       - 8080
   server:
     build: ./server
-    image: <accountid>.dkr.ecr.<region>.amazonaws.com/partner-meanstack-atlas-fargate-server
+    image: <accountid>.dkr.ecr.us-east-1.amazonaws.com/partner-meanstack-atlas-fargate-server
     platform: linux/amd64
     ports:
       - 5200
