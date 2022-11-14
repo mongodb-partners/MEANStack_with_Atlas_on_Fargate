@@ -118,7 +118,8 @@ Update the details for x-aws-vpc , x-aws-role, images of both server and client 
 
 Ensure the VPC is having atleast two public subnets in different AZs. if any of the subnets are in the same AZs, the docker-compose up command will fail.
 
-<img width="1290" alt="image" src="https://user-images.githubusercontent.com/101570105/201418021-295844f4-103b-4b47-8bf7-772813f216bd.png">
+<img width="1139" alt="image" src="https://user-images.githubusercontent.com/101570105/201689664-3ea7fe68-0e90-4baf-aac7-193fac998b0a.png">
+
 
 
 
