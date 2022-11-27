@@ -233,6 +233,52 @@ copy the public ip address of the client task
 <img width="1696" alt="image" src="https://user-images.githubusercontent.com/101570105/201416515-4fc6f497-cd4d-4f44-b885-bd1b144ce6eb.png">
 
 
+### Troubleshooting:
+
+In case above steps dont work, use aws-cli to create Task definition and Service
+
+https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_AWSCLI_Fargate.html
+
+JSON File: 
+```
+{
+    "family": "partner-meanstack-server-cli", 
+    "networkMode": "awsvpc", 
+    "executionRoleArn": "<execution_role_arn",
+    "containerDefinitions": [
+        {
+            "name": "server-partner", 
+            "image": "<ecr_image_uri>", 
+            "portMappings": [
+                {
+                    "containerPort": 5200, 
+                    "hostPort": 5200, 
+                    "protocol": "tcp"
+                }
+            ], 
+            "essential": true, 
+            "entryPoint": [
+                "sh",
+		"-c"
+            ]
+        }
+    ], 
+    "requiresCompatibilities": [
+        "FARGATE"
+    ], 
+    "cpu": "256", 
+    "memory": "512"
+}
+```
+
+Task Definition: ``` aws ecs register-task-definition --cli-input-json file:<path_to_file> ```
+
+<img width="1314" alt="Screenshot 2022-11-28 at 12 41 04 AM" src="https://user-images.githubusercontent.com/114057324/204155274-f739e15b-020f-4763-8dfe-10cd52d7ed34.png">
+
+Service:  ```aws ecs create-service --cluster partner-meanstack-atlas-fargate --service-name server-service-cli --task-definition partner-meanstack-server-cli:1 --desired-count 1 --launch-type "FARGATE" --network-configuration "awsvpcConfiguration={subnets=[subnet-123abc],securityGroups=[sg-123abc]}" ```
+
+<img width="1302" alt="Screenshot 2022-11-28 at 12 46 04 AM" src="https://user-images.githubusercontent.com/114057324/204155258-5494abd4-d452-4fb7-97b3-0e11cbb8299b.png">
+
 
 ### **Step7: Testing the Application**
 
@@ -240,7 +286,6 @@ Test the application by invoking the public ipaddress:8080 copied from the above
 
 
 <img width="1637" alt="image" src="https://user-images.githubusercontent.com/101570105/201416331-d9f891fb-fd5c-4e69-9824-02fb6b78cb80.png">
-
 
 
 ## Summary:
