@@ -20,7 +20,8 @@ AWS Fargate is a serverless, pay-as-you-go compute engine that lets you focus on
 
 ## Architecture Diagram:
 
-<img width="800" alt="image" src="https://user-images.githubusercontent.com/101570105/200035448-797a15d3-62d7-4a21-b780-c64c3962e8b9.png">
+<img width="834" alt="image" src="https://user-images.githubusercontent.com/101570105/216386105-4145c902-3518-4dbc-ae09-1407114e25af.png">
+
 
 
 ## Pre-requisite:
