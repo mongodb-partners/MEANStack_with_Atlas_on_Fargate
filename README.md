@@ -29,7 +29,7 @@ Code editor: [VSCode](https://code.visualstudio.com/download)
 
 Container: [Docker Desktop (with docker compose)](https://www.docker.com/products/docker-desktop/)
 
-Command Line execution: [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-quickstart.html)
+Command Line execution: [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 
 
 
