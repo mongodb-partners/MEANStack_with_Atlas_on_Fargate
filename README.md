@@ -97,20 +97,20 @@ Configure the MongoDB Connection string in ".env" in partner-meanstack-atlas-far
 
 Setup the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html) environment
 
-Create the ECR and note down the URI for each of the repository.
+Create the ECR for client and note down the URI for the repository.
 
                   	aws ecr create-repository \
                   --repository-name partner-meanstack-atlas-fargate-client \
                   --image-scanning-configuration scanOnPush=true \
                   --region us-east-1
-                  
-                  
-                   aws ecr create-repository \
+                   
+Create the ECR for backend and note down the URI for the repository.
+
+
+		aws ecr create-repository \
                   --repository-name partner-meanstack-atlas-fargate-server \
                   --image-scanning-configuration scanOnPush=true \
                   --region us-east-1
-
-
 
 ### **Step3b: Open the code and update for docker-compose.yaml **  
 
