@@ -30,13 +30,15 @@ Code editor: [VSCode](https://code.visualstudio.com/download)
 
 Code repository: [Git](https://git-scm.com/downloads)
 
+Command Line execution: [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+
 Container: [Docker Desktop (with docker compose)](https://www.docker.com/products/docker-desktop/) 
 
 ![image](https://github.com/mongodb-partners/MEANStack_with_Atlas_on_Fargate/assets/101570105/6ce21cd2-e12e-4f8a-afd6-e60ca0207668)
 
 **Side Note:** Ensure the versions are managed as shown. Will have compatibility issues with the latest versions.
 
-Command Line execution: [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+
 
 
 
@@ -132,10 +134,6 @@ Ensure the VPC has having least two public subnets in different AZs. if any of t
 
 
 Ensure the docker desktop is up and running. if not start the [docker deamon](https://docs.docker.com/config/daemon/)
-
-![image](https://github.com/mongodb-partners/MEANStack_with_Atlas_on_Fargate/assets/101570105/97f7c456-2143-4eb9-bc78-d522732330bb)
-
-
 
 
 
