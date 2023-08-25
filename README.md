@@ -210,7 +210,7 @@ Ensure the code is saved successfully.
 
 complete the rebuild. It will be a rolling update and the changes will be deployed, without impact to the running instances.
 
-		docker compose use default
+		docker context use default
 		
 		docker compose build
 		
