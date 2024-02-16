@@ -1,3 +1,0 @@
-[config]
-uri_old=mongodb+srv://<username>:<password>@<servername>/?retryWrites=true&w=majority
-uri=mongodb+srv://<servername>/?authSource=%24external&authMechanism=MONGODB-AWS
