@@ -1,0 +1,25 @@
+Parameters:
+  App:
+    Type: String
+    Description: Your application's name.
+  Env:
+    Type: String
+    Description: The environment name your service, job, or workflow is being deployed to.
+  Name:
+    Type: String
+    Description: The name of the service, job, or workflow being deployed.
+Resources:
+  MyPolicy:
+    Type: AWS::IAM::ManagedPolicy
+    Properties:
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: secretsmanager
+            Effect: Allow
+            Action: secretsmanager:*
+            Resource: '*'
+Outputs:
+  MyPolicy:
+    Description: To allow access for web to textract service within aws.
+    Value: !Ref   MyPolicy
