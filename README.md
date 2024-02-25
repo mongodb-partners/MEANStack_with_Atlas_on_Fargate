@@ -131,7 +131,7 @@ Wait till initial infrastructure provisioning finishes and you are prompted for 
 ![image](https://github.com/mongodb-partners/MEANStack_with_Atlas_on_Fargate/assets/101570105/d4412f58-2c8d-4c1f-8236-c6c26331e911)
 
 
-Supply the environment name dev and hit Enter Key.
+Supply the environment name ```dev``` and hit Enter Key.
 
 ![image](https://github.com/mongodb-partners/MEANStack_with_Atlas_on_Fargate/assets/101570105/75bc635b-2f82-4eb1-8bc1-c6e327267081)
 
@@ -143,7 +143,7 @@ Ensure the server is deployed successfully.
 
 
 
-### Step 5: Update the Server URI to the front-end code
+### Step 5: Update the Server URI to the frontend code
 
 For the frontend application to communicate to the server service, it needs to know the server service URI. We have a placeholder in the code where you need to make the change.
 
@@ -174,7 +174,7 @@ d. Use arrow keys to navigate to the placeholder, and paste the DNS keeping the 
 
 ![image](https://github.com/mongodb-partners/MEANStack_with_Atlas_on_Fargate/assets/101570105/93254480-484f-4957-b123-12882025e76f)
 
-e. Ctrl-X to save
+e. ```Ctrl-X``` to save
 
 ![image](https://github.com/mongodb-partners/MEANStack_with_Atlas_on_Fargate/assets/101570105/d79293c7-0460-4c64-8956-39bea6c4a5e4)
 
@@ -182,7 +182,7 @@ e. Ctrl-X to save
 
 ### Step 6: Deploy the front-end code
 
-a. Use the same command we used before copilot init and select Load Balanced Web Service
+a. Use the same command we used before ```copilot init``` and select ```Load Balanced Web Service```
 
 <img width="962" alt="image" src="https://github.com/mongodb-partners/MEANStack_with_Atlas_on_Fargate/assets/101570105/44f00eb3-4eff-41e5-a64c-8ebb2d0a5213">
 
@@ -233,7 +233,8 @@ g. Now switch to the details tab and copy the DNS
 Test the application by invoking the <"DNS for frontend loadbalancer">:8080 copied from the above step.
 
 
-<img width="907" alt="image" src="https://github.com/mongodb-partners/MEANStack_with_Atlas_on_Fargate/assets/101570105/8418792e-29d4-4507-8050-1a616dd9d2aa">
+<img width="1588" alt="image" src="https://github.com/mongodb-partners/MEANStack_with_Atlas_on_Fargate/assets/101570105/6601999f-efd6-4c6e-96b4-086ba491b89b">
+
 
 
 
