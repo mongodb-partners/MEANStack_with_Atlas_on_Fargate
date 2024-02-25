@@ -114,7 +114,7 @@ Next, select Load Balanced Web Service and hit Enter Key
 <img width="980" alt="image" src="https://github.com/mongodb-partners/MEANStack_with_Atlas_on_Fargate/assets/101570105/f90b1538-301d-4d43-9025-43da0b52790e">
 
 
-We are now creating a service. There's a predefined service called server. Type server as the service name.
+We are now creating a service. There's a predefined service called server. Type ```server``` as the service name.
 
 <img width="895" alt="image" src="https://github.com/mongodb-partners/MEANStack_with_Atlas_on_Fargate/assets/101570105/f86802ad-8d50-4136-9e3e-042eb6705572">
 
