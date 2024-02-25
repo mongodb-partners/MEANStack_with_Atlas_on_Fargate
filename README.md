@@ -249,7 +249,7 @@ Congratulations!! you have successully deployed the containerized application on
 Use the command ```copilot svc ls``` to list all the servrices
 
 
-Use the command ```copilot svc delete --name frontend server``` to delete the services
+Use the command ```copilot svc delete --name frontend``` & ```copilot svc delete --name server``` to delete the services
 
 
 
