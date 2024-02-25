@@ -106,7 +106,7 @@ d. Install the Application and Environment
 
 
 
-Type your application a name and hit Enter Key
+Type your application a name ```atlasmean``` and hit Enter Key
 
 Next, select Load Balanced Web Service and hit Enter Key
 
