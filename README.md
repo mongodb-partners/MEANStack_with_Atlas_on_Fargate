@@ -239,8 +239,20 @@ Test the application by invoking the <"DNS for frontend loadbalancer">:8080 copi
 
 
 
+
 ## Summary:
 
 Congratulations!! you have successully deployed the containerized application onto AWS ECS Fargte.
+
+### Cleanup
+
+Use the command ```copilot svc ls``` to list all the servrices
+
+
+Use the command ```copilot svc delete --name frontend server``` to delete the services
+
+
+
+<img width="806" alt="image" src="https://github.com/mongodb-partners/MEANStack_with_Atlas_on_Fargate/assets/101570105/814e8c7b-cadf-46fa-bc2e-aaa030c18de5">
 
 Pls share your feedback/queries in the comments
