@@ -1,15 +1,15 @@
 # App Modernization with AWS Fargate(ECS) and MongoDB Atlas
 
-## Introduction: 
+## Introduction:
 This is a technical repo to demonstrate the application deployment using MongoDB Atlas and AWS Fargate.
 This tutorial is intended for those who want to
 1. Serverless Application Deployment for Production Environment
 2. Production deployment to auto-scale, HA, and Security
 3. Agile development of application modernization
 4. Deployment of containerized application in AWS
-5. Want to try out the AWS Fargate and MongoDB Atlas 
+5. Want to try out the AWS Fargate and MongoDB Atlas
 
-## [MongoDB Atlas](https://www.mongodb.com/atlas) 
+## [MongoDB Atlas](https://www.mongodb.com/atlas)
 MongoDB Atlas is an all-purpose database having features like Document Model, Geo-spatial, Time Series, hybrid deployment, and multi-cloud services.
 It evolved as a "Developer Data Platform", intended to reduce the developer workload on the development and management of the database environment.
 It also provides a free tier to test out the application/database features.
@@ -43,10 +43,10 @@ Please follow the [link](https://www.mongodb.com/docs/atlas/tutorial/deploy-free
 
 ### Step 1a: Configure the Database access and Network Security
 
-Configure the database for [database access](https://www.mongodb.com/docs/atlas/tutorial/create-mongodb-user-for-cluster/) and  [network security](https://www.mongodb.com/docs/atlas/security/add-ip-address-to-list/) 
+Configure the database for [database access](https://www.mongodb.com/docs/atlas/tutorial/create-mongodb-user-for-cluster/) and  [network security](https://www.mongodb.com/docs/atlas/security/add-ip-address-to-list/)
 
 
-### Step 2: Create the secret in the Secret Manager 
+### Step 2: Create the secret in the Secret Manager
 
 
 a. In AWS Console navigate to Secret Manager and click on Store a New secret
@@ -74,7 +74,7 @@ e. Confirm the secret is created by observing it listed on the page. Note: you m
 
 
 
-### Step 3: Login to the AWS Console cloud shell and set up the ECS Copilot Application and environment  
+### Step 3: Login to the AWS Console cloud shell and set up the ECS Copilot Application and environment
 
 a. Login to AWS Console and launch the cloud shell
 ![image](https://github.com/mongodb-partners/MEANStack_with_Atlas_on_Fargate/assets/101570105/ec45cc06-87a5-4a3a-8810-902af43a3e1c)
@@ -127,6 +127,8 @@ Select the ```server/Dockerfile``` from the menu and hit Enter key
 
 
 Wait till initial infrastructure provisioning finishes and you are prompted for a deployment environment
+
+Press `y` to deploy
 
 ![image](https://github.com/mongodb-partners/MEANStack_with_Atlas_on_Fargate/assets/101570105/d4412f58-2c8d-4c1f-8236-c6c26331e911)
 
@@ -192,26 +194,26 @@ b. Supply ```frontend``` as the service name
 
 <img width="894" alt="image" src="https://github.com/mongodb-partners/MEANStack_with_Atlas_on_Fargate/assets/101570105/5668079c-83d5-4d0b-bf89-cfece6069697">
 
+c. Press `y` to deploy, and chose the `dev` environment we created earlier.
 
-
-c. If you get the message below. Then type ```copilot deploy```.
+d. If you get the message below. Then type ```copilot deploy```.
 
 ![image](https://github.com/mongodb-partners/MEANStack_with_Atlas_on_Fargate/assets/101570105/63b8911e-5557-47d3-b500-ca3dd0a19cbf)
 
 
-d. Make sure you select frontend
+e. Make sure you select frontend (using the spacebar)
 
 ![image](https://github.com/mongodb-partners/MEANStack_with_Atlas_on_Fargate/assets/101570105/00e08fe1-16dc-41af-913d-f6aa30755927)
 
 
-e. Wait for the deployment process to complete in AWS Console CloudFormation UI or from the CloudShell. You should see at least one running task.
+f. Wait for the deployment process to complete in AWS Console CloudFormation UI or from the CloudShell. You should see at least one running task.
 
 ![image](https://github.com/mongodb-partners/MEANStack_with_Atlas_on_Fargate/assets/101570105/dbd48dfc-f917-4a3f-b744-c3d83ab7296c)
 
 
-f. Now, you need to find the DNS for the frontend. 
-Like before, navigate to EC2 --> Load Balancing --> Load Balancers. 
-Note there are now two load balancers, one for the frontend and the other for the server. 
+g. Now, you need to find the DNS for the frontend.
+Like before, navigate to EC2 --> Load Balancing --> Load Balancers.
+Note there are now two load balancers, one for the frontend and the other for the server.
 Select the frontend one. It has a listener configured on port 8080.
 
 ![image](https://github.com/mongodb-partners/MEANStack_with_Atlas_on_Fargate/assets/101570105/07087a23-e726-471e-a17b-5623d943a689)
@@ -221,7 +223,7 @@ Select the frontend one. It has a listener configured on port 8080.
 
 
 
-g. Now switch to the details tab and copy the DNS
+h. Now switch to the details tab and copy the DNS
 
 <img width="982" alt="image" src="https://github.com/mongodb-partners/MEANStack_with_Atlas_on_Fargate/assets/101570105/a9165e35-8efa-4e29-9436-240da63ac5ca">
 
