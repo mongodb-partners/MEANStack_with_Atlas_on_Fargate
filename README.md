@@ -229,6 +229,52 @@ h. Now switch to the details tab and copy the DNS
 
 
 
+### Troubleshooting:
+
+In case above steps dont work, use aws-cli to create Task definition and Service
+
+https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_AWSCLI_Fargate.html
+
+JSON File: 
+```
+{
+    "family": "partner-meanstack-server-cli", 
+    "networkMode": "awsvpc", 
+    "executionRoleArn": "<execution_role_arn>",
+    "taskRoleArn": "<execution_role_arn>",
+    "containerDefinitions": [
+        {
+            "name": "<name_for_container>", 
+            "image": "<ecr_image_uri>", 
+            "portMappings": [
+                {
+                    "containerPort": 5200, 
+                    "hostPort": 5200, 
+                    "protocol": "tcp"
+                }
+            ], 
+            "essential": true, 
+        }
+    ], 
+    "requiresCompatibilities": [
+        "FARGATE"
+    ], 
+    "memory": "4096", 
+    "cpu": "2048"
+}
+```
+
+Task Definition: ``` aws ecs register-task-definition --cli-input-json file:<path_to_file> ```
+
+<img width="1314" alt="Screenshot 2022-11-28 at 12 41 04 AM" src="https://user-images.githubusercontent.com/114057324/204155274-f739e15b-020f-4763-8dfe-10cd52d7ed34.png">
+
+Service:  ```aws ecs create-service --cluster <cluster_name> --service-name <service_name> --task-definition <task_definition_name> --desired-count 1 --launch-type "FARGATE" --network-configuration "awsvpcConfiguration={subnets=[subnet-abc123],securityGroups=[sg-abc123],assignPublicIp="ENABLED"}"```
+
+<img width="1302" alt="Screenshot 2022-11-28 at 12 46 04 AM" src="https://user-images.githubusercontent.com/114057324/204155258-5494abd4-d452-4fb7-97b3-0e11cbb8299b.png">
+
+<img width="1728" alt="Screenshot 2022-11-28 at 9 39 52 AM" src="https://user-images.githubusercontent.com/114057324/204192422-dfb2644f-b102-474a-95b9-b2333f49c544.png">
+
+
 
 ### **Step7: Testing the Application**
 
@@ -236,7 +282,6 @@ Test the application by invoking the <"DNS for frontend loadbalancer">:8080 copi
 
 
 <img width="1588" alt="image" src="https://github.com/mongodb-partners/MEANStack_with_Atlas_on_Fargate/assets/101570105/6601999f-efd6-4c6e-96b4-086ba491b89b">
-
 
 
 
