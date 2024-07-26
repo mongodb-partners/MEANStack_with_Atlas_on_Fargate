@@ -246,6 +246,14 @@ Test the application by invoking the <"DNS for frontend loadbalancer">:8080 copi
 
 
 
+## Useful links
+
+[Resolving EACCES permissions errors when installing packages globally](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally)
+
+
+[AWS CloudShell compute environment: specifications and software](https://docs.aws.amazon.com/cloudshell/latest/userguide/vm-specs.html)
+
+
 
 
 ## Summary:
@@ -258,13 +266,6 @@ Use the command ```copilot svc ls``` to list all the servrices
 
 
 Use the command ```copilot svc delete --name frontend``` & ```copilot svc delete --name server``` to delete the services
-
-
-## Useful links
-
-[Resolving EACCES permissions errors when installing packages globally](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally)
-
-[AWS CloudShell compute environment: specifications and software](https://docs.aws.amazon.com/cloudshell/latest/userguide/vm-specs.html)
 
 
 
