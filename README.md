@@ -27,8 +27,9 @@ AWS Fargate is a serverless, pay-as-you-go compute engine that lets you focus on
 
 ## Pre-requisite:
 
-AWS Console access
-
+[AWS Console](https://aws.amazon.com/free/) with cloud shell access
+[Node](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)  version v18.8.2 and above. (this code repository is not compatible for node v16.x.x)
+[MongoDB Atlas cluster](https://www.mongodb.com/lp/cloud/atlas/try4)
 
 
 ## Step-by-Step Fargate Deployment:
@@ -85,10 +86,11 @@ b. Install ECS Copilot CLI by running the following commands
     sudo curl -Lo /usr/local/bin/copilot https://github.com/aws/copilot-cli/releases/latest/download/copilot-linux    && sudo chmod +x /usr/local/bin/copilot    && copilot --help
 
 
-c. Clone the GitHub repository for the code
+c. Clone the GitHub repository for the code. Ensure node version is 18.x.x or above
 
     git clone https://github.com/mongodb-partners/MEANStack_with_Atlas_on_Fargate.git
     cd MEANStack_with_Atlas_on_Fargate/code/MEANSTACK/partner-meanstack-atlas-fargate
+    node --version
 
 
 
@@ -252,6 +254,13 @@ Use the command ```copilot svc ls``` to list all the servrices
 
 
 Use the command ```copilot svc delete --name frontend``` & ```copilot svc delete --name server``` to delete the services
+
+
+## Useful links
+
+[Resolving EACCES permissions errors when installing packages globally](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally)
+
+[AWS CloudShell compute environment: specifications and software](https://docs.aws.amazon.com/cloudshell/latest/userguide/vm-specs.html)
 
 
 
