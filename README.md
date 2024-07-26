@@ -28,8 +28,12 @@ AWS Fargate is a serverless, pay-as-you-go compute engine that lets you focus on
 ## Pre-requisite:
 
 [AWS Console](https://aws.amazon.com/free/) with cloud shell access
+
 [Node](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)  version v18.8.2 and above. (this code repository is not compatible for node v16.x.x)
+
 [MongoDB Atlas cluster](https://www.mongodb.com/lp/cloud/atlas/try4)
+
+
 
 
 ## Step-by-Step Fargate Deployment:
